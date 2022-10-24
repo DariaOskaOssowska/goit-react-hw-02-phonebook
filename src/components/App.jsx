@@ -23,12 +23,16 @@ export class App extends Component {
   };
 
   handleSubmit = e => {
-    console.log(e);
     const id = nanoid();
     const name = e.name;
     const number = e.number;
     const contactsLists = [...this.state.contacts];
-    contactsLists.push({ name, id, number });
+
+    if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
+      alert(`${name} is already in contacts.`);
+    } else {
+      contactsLists.push({ name, id, number });
+    }
 
     this.setState({ contacts: contactsLists });
   };
