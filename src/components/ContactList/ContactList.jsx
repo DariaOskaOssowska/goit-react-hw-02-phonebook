@@ -4,13 +4,12 @@ import propTypes from 'prop-types';
 export const ContactList = ({ contacts, handleDelete }) => (
   <div>
     <ul>
-      {contacts.map((contact, id, number) => (
+      {contacts.map((contact, id) => (
         <li key={id}>
           {contact.name}: {contact.number}
-          
-          {/* <button type="button" onClick={() => handleDelete(contact.id)}>
+          <button type="button" onClick={() => handleDelete(contact.id)}>
             Delete
-          </button> */}
+          </button>
         </li>
       ))}
     </ul>
@@ -25,5 +24,5 @@ ContactList.propTypes = {
       number: propTypes.string.isRequired,
     })
   ),
-//   handleDelete: propTypes.func.isRequired,
+  handleDelete: propTypes.func.isRequired,
 };

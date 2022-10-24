@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import { Component } from 'react';
 
 export const Filter = ({ filter, handleChange }) => (
   <label>

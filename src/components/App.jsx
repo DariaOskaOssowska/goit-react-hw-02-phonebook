@@ -37,6 +37,12 @@ export class App extends Component {
     this.setState({ contacts: contactsLists });
   };
 
+  handleDelete = e => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== e),
+    }));
+  };
+
   getFilteredContacts = () => {
     const filterContactsList = this.state.contacts.filter(contact => {
       return contact.name
@@ -65,7 +71,10 @@ export class App extends Component {
         <ContactForm handleSubmit={this.handleSubmit} />
         <h2> Contacts</h2>
         <Filter filter={filter} handleChange={this.handleChange} />
-        <ContactList contacts={this.getFilteredContacts()} />
+        <ContactList
+          contacts={this.getFilteredContacts()}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }
