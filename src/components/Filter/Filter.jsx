@@ -1,16 +1,18 @@
 import propTypes from 'prop-types';
+import css from './Filter.module.css';
 
 export const Filter = ({ filter, handleChange }) => (
-  <label>
-    Find contacts by Name
+  <div>
+    <label className={css.filterLabel}>Find contacts by Name </label>
     <input
+      className={css.filterName}
       type="text"
       name="filter"
       placeholder="Enter filter"
       value={filter}
       onChange={handleChange}
     />
-  </label>
+  </div>
 );
 
 Filter.propTypes = {
